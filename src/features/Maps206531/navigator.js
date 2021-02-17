@@ -1,16 +1,15 @@
+import React from 'react';
+import { SlideMenuIcon } from '../../navigator/slideMenuIcon';
 import { createStackNavigator } from "react-navigation-stack";
 
-import MapsHome from "./screens/MapsHome";
-import Home from "./screens/";
+import Maps from "./index";
 
-
-export default MapsNavigator = createStackNavigator(
-  {
-    Maps: { screen: MapsHome },
-    Home: { screen: Home },
-
-  },
-  {
-    initialRouteName: "Home",
+export default MapsNavigator = createStackNavigator({
+  Maps: {
+    screen: Maps.screen,
+    navigationOptions: ({ navigation }) => ({
+      title: "Maps",
+      headerLeft: <SlideMenuIcon navigationProps={navigation} />,
+    }),
   }
-);
+});
